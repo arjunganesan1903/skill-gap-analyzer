@@ -1,0 +1,9 @@
+gradio>=4.26
+python-jobspy
+plotly
+pandas
+numpy
+scikit-learn
+requests
+PyPDF2
+python-docx
