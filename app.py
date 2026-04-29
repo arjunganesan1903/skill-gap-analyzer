@@ -816,9 +816,18 @@ def chart_roles(all_gaps):
         textfont=dict(color=_BLACK),
     ))
     fig.add_vline(x=50, line_dash='dash', line_color=_BAD, opacity=0.5)
-    fig.update_xaxes(range=[0, 115], title='Match Score (%)',
-                     tickfont=dict(color=_BLACK), titlefont=dict(color=_BLACK))
-    fig.update_yaxes(tickfont=dict(color=_BLACK))
+    fig.update_xaxes(
+        range=[0, 115],
+        title=dict(
+            text='Match Score (%)',
+            font=dict(color=_BLACK)
+        ),
+        tickfont=dict(color=_BLACK)
+    )
+
+    fig.update_yaxes(
+        tickfont=dict(color=_BLACK)
+    )
     fig.update_layout(**_base_layout(max(220, len(roles) * 68), title_text='Match Score Per Role'))
     return fig
 
@@ -841,8 +850,14 @@ def chart_gaps(gap_details):
                            font=dict(color=_BAD, size=11))
     fig.update_layout(
         barmode='overlay',
-        yaxis=dict(range=[0, 6], title='Score (0–5)',
-                   tickfont=dict(color=_BLACK), titlefont=dict(color=_BLACK)),
+        yaxis=dict(
+            range=[0, 6],
+            title=dict(
+                text='Score (0–5)',
+                font=dict(color=_BLACK)
+            ),
+            tickfont=dict(color=_BLACK)
+        ),
         xaxis=dict(tickfont=dict(color=_BLACK)),
         **_base_layout(360, title_text='Top Gaps: Your Score vs Required'),
     )
@@ -863,9 +878,16 @@ def chart_impact(gap_details):
         textposition='outside', textfont=dict(color=_BLACK),
     ))
     fig.update_layout(
-        yaxis=dict(title='Match Score Gain (%)',
-                   tickfont=dict(color=_BLACK), titlefont=dict(color=_BLACK)),
-        xaxis=dict(tickfont=dict(color=_BLACK)),
+        yaxis=dict(
+            title=dict(
+                text='Match Score Gain (%)',
+                font=dict(color=_BLACK)
+            ),
+            tickfont=dict(color=_BLACK)
+        ),
+        xaxis=dict(
+            tickfont=dict(color=_BLACK)
+        ),
         **_base_layout(360, title_text='Learning Impact (Match Score Gain per Skill)'),
     )
     return fig
